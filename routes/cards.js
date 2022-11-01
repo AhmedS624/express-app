@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const user = require('./config')
 router.get('/',(req,res)=>{
     res.send('Cards')
 })
@@ -9,7 +9,10 @@ router.get('/new',(req,res) => {
     res.send('New card')
 })
 
-router.post('/new',(req,res) => {
+router.post('/new',async(req,res) => {
+    const data = req.body;
+    console.log('Data',data)
+    // await user.add(data)
     res.send('Create card')
 })
 
